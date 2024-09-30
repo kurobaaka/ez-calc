@@ -1,33 +1,83 @@
-#include iostream
+#include <iostream>
 
-void main()
+using namespace std;
+
+int add(int x, int y)
 {
-    setlocale(LC_ALL, "Russian"); // Установка русского языка
+    int z;
+    z = x + y;
+    return z;
+}
 
-    int a,b,selection;
-    cout << "Введите 2 числa: " << endl;
-    cin >> a >> b;
+int subtract(int x, int y)
+{
+    int z;
+    z = x - y;
+    return z;
+}
 
-    cout << "Список операций: " << endl;
-    cout << "1. Сложение" << endl;
-    cout << "2. Вычитание" << endl;
-    cout << "3. Умножение" << endl
-    cout << "4. Деление" << endl;
+int multiply(int x, int y)
+{
+    int z;
+    z = x * y;
+    return z;
+}
 
-    cin >> selection;
+int divide(int x, int y)
+{
+    int z;
+    z = x / y;
+    return z;
+}
 
-    switch(selection)
+int main()
+{
+    int userChoice;
+    int x;
+    int y;
+    int r;
+    cout << "Please choose which operation you would like to preform: \n 1| Addition \n 2| Subtraction \n 3| Multiplication \n 4| Division" << endl;
+    cin >> userChoice;
+    switch (userChoice)
     {
         case 1:
-        cout << "Сумма: " << a + b << endl;
+        cout << "Please enter the first number you would like to add: " << endl;
+        cin >> x;
+        cout << "Please enter the second number you would like to add: " << endl;
+        cin >> y;
+        r = add(x,y);
         break;
 
         case 2:
-        cout << "Разность: " << a - b << endl;
+        cout << "Please enter the minuend: " << endl;
+        cin >> x;
+        cout << "Please enter the subtrahend: " << endl;
+        cin >> y;
+        r = subtract(x,y);
+        break;
+
+        case 3:
+        cout << "Please enter the first number you would like to multiply: " << endl;
+        cin >> x;
+        cout << "Please enter the second number you would like to multiply: " << endl;
+        cin >> y;
+        r = multiply(x,y);
+        break;
+
+        case 4:
+        cout << "Please enter the dividend: " << endl;
+        cin >> x;
+        cout << "Please enter the divisor: " << endl;
+        cin >> y;
+        r = divide(x,y);
         break;
 
         default:
-        cout<<"Ошибка! Пункт меню отсутствует."<< endl;
+        cout << "Please enter a number that corresponds to an operation!" << endl;
+        return -1;
         break;
     }
+
+    cout << r;
+    return 0;
 }
